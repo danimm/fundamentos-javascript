@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Agrega métodos para mover los puntos - Objetos Avanzados en Javascript</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+    function Punto (x, y) {
+      this.x = x
+      this.y = y
+    }
+
+    Punto.prototype.moverEnX = function moverEnX(x) {
+      this.x += x
+    }
+    Punto.prototype.moverEnY = function moverEnX(y) {
+      this.y += y
+    }
+    Punto.prototype.distancia = function distancia(p){
+      const x = this.x - p.x
+      const y = this.y - p.y
+
+      return Math.sqrt(x * x + y * y)
+    }
+
+    const p1 = new Punto(0, 4)
+    const p2 = new Punto(3, 0)
+
+    console.log(p1.distancia(p2));
+    p1.moverEnX(10)
+    console.log(p2.distancia(p1));
+    p2.moverEnY(-4)
+    console.log(p1.distancia(p2));
+
+  </script>
+
+</body>
+</html>
