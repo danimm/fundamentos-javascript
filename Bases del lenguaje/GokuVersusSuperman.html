@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>¿ Quién ganaría en una pelea Goku vs Superman ?</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    let vidaGoku = 100
+    let vidaSuperman = 100
+
+    const Min_Power = 5
+    const Max_Power = 12
+
+    // function ambosSiguenVivos() {
+    //   return vidaGoku > 0 && vidaSuperman > 0
+    // }
+    const ambosSiguenVivos = () => vidaGoku > 0 && vidaSuperman > 0
+
+    const calcularGolpe = () => Math.round(Math.random() * (Max_Power - Min_Power) + Min_Power)
+
+    const gokuSigueVivo = () => vidaGoku > 0
+
+    let round = 1
+
+    while (ambosSiguenVivos()) { // la condicion es que ambos sigan vivos.
+      console.log(`Round ${round}`);
+
+      const golpeGoku = calcularGolpe()
+      const golpeSuperman = calcularGolpe()
+
+      if (golpeGoku > golpeSuperman) {
+        // ataca goku
+        console.log(`Goku ataca a Superman con un golpe de ${golpeGoku}.`);
+        vidaSuperman -= golpeGoku
+        console.log(`Superman queda en ${vidaSuperman}.`);
+      } else {
+        // ataca superman
+        console.log(`Superman ataca a Goku con un golpe de ${golpeSuperman}.`);
+        vidaGoku -= golpeSuperman
+        console.log(`Goku queda en ${vidaGoku}.`);
+      }
+      round++
+
+    }
+
+    if (gokuSigueVivo()) {
+      console.log(`Goku ganó la pelea. Su vida es de: ${vidaGoku}.`);
+    } else {
+      console.log(`Superman ganó la pelea. Su vida es de: ${vidaSuperman}.`);
+    }
+  </script>
+
+</body>
+
+</html>

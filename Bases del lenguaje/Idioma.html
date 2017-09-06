@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Idioma Platzi</title>
+  <style media="screen">
+    body {
+      background-color: rgb(84, 129, 207);
+      color: white;
+      text-align: center;
+      font-family: serif;
+    }
+
+    li {
+      margin: 15px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>Platzom</h1>
+  <h2>Inventando un idioma usando string en JS</h2>
+  <h3>Hay 3 reglas:</h3>
+  <ul>
+    <li>Si la palabra termina con "ar", se le quitan esas dos letras
+      <ul>
+        <li>Ejemplo: platzom("Programar") // Programm</li>
+      </ul>
+    </li>
+    <li>Si la palabra inicia con Z, se le añade "pe" al final.
+      <ul>
+        <li>platzom("zorro") // zorrope</li>
+        <li>platzom("zarpar") // zarppe, por la regla 1</li>
+      </ul>
+    </li>
+    <li>
+      Si la palabra traducida tiene 10 o más letras, se debe partir en dos por la mitad y unir con un guión medio.
+      <ul>
+        <li>platzom("abecedario") // abece-dario</li>
+      </ul>
+    </li>
+    <li>Por último, si la palabra original es un palíndromo, ninguna regla anterior cuenta y se devuelve la misma palabra pero intercalando letras mayúsculas y minúsculas
+      <ul>
+        <li>platzom("sometemos") // SoMeTeMoS</li>
+      </ul>
+    </li>
+  </ul>
+
+  <script type="text/javascript">
+    function platzom(str) {
+      // primero hay que asignar el string a otra variable para poder modificarla
+      let translation = str
+
+      // Si la palabra termina en "ar", se le quitan esos dos caracteres
+      if (str.toLowerCase().endsWith('ar')) {
+        translation = str.slice(0, -2) //slice sirve para cortar caracteres desde el final corta 2
+      }
+
+      // Si la palabra inicia con Z, se le añade "pe" al final
+      if (str.toLowerCase().startsWith('z')) {
+        // translation = translation + 'pe'
+        translation += 'pe'
+      }
+
+      // Si la palabra traducida tiene 10 o más letras
+      // se debe partir a la mitad y unir con un guión
+      const length = translation.length
+      if (length >= 10) {
+        const firstHalf = translation.slice(0, Math.round(length / 2))
+        const secondHalf = translation.slice(Math.round(length / 2)) // sin 2 parametro es hasta el final
+        translation = `${firstHalf}-${secondHalf}`
+      }
+
+      // Si la palabra original es un palindromo,
+      // ninguna regla anterior cuenta y se devuelve
+      // la misma palabra intercalando mayusculas y minusculas
+
+      // primero hay que convertir a un array para poder leer caracter x caracter
+      // darle la vuelta con reverse y luego hacer un join
+
+      const reverse = (str) => str.split('').reverse().join('')
+      function minMay(str) {
+        const length = str.length
+        let translation = ''
+        let capitalize = true // capitalize significa poner en mayusculas
+        for (let i = 0; i < length; i++ ){
+          const char = str.charAt(i)
+          // es como si fuera un if en una linea para una condicion, y los : es un else
+          translation += capitalize ? char.toUpperCase() : char.toLowerCase()
+          capitalize = !capitalize // hay que pasarlo a false
+        }
+
+        return translation
+
+      }
+
+      if (str == reverse(str)) {  // Si el str original es igual al str reverse
+        return minMay(str) // Solo se ejecuta un return por funcion, osea seria este.
+      }
+
+      return translation
+
+    }
+    console.log(platzom("Programar")) // Program
+    console.log(platzom("Zorro")) // Zorrope
+    console.log(platzom("Zarpar")) // Zarppe
+    console.log(platzom("Abecedario")) // Abece-dario
+    console.log(platzom("sometemos")) // SoMeTeMoS
+  </script>
+
+</body>
+
+</html>

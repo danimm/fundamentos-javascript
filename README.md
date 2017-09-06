@@ -1,1 +1,1 @@
-# fundamentos-javascript
+# Curso web sobre fundamentos en Javascript

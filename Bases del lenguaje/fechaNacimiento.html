@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>¿Cuánto tiempo pasó desde tu fecha de nacimiento?</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+  // 20 de enero de 1989
+// esto es un nuevo constructor de fechas por ejemplo
+// año, mes -1, dia
+  const nacimiento = new Date (1989, 0, 20)
+  console.log(nacimiento);
+  const hoy = new Date()
+  console.log(hoy);
+
+  const tiempo = hoy - nacimiento // tiempo de en milisegundos
+  console.log(tiempo);
+
+  const tiempoSegundos = tiempo / 1000
+  console.log(tiempoSegundos);
+
+  const tiempoMin = tiempoSegundos / 60
+  console.log(tiempoMin);
+
+  const tiempoHoras = tiempoMin / 60
+  console.log(tiempoHoras);
+
+  // llamamos un metodo de un objeto
+  const proximoCumple = new Date (hoy.getFullYear(), nacimiento.getMonth(), nacimiento.getDate())
+  console.log(proximoCumple);
+
+  const diasSemana = [ // el domingo es el dia 0 en
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado"
+  ]
+  console.log(diasSemana[proximoCumple.getDay()]); // indice de ese dia de la semana
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>¿ Cuántos kilometros corre una persona en promedio ?</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+  // array = una coleccion de strings
+
+  const nombre = 'Danie'
+  const dias = [
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+    "Domingo"
+  ]
+
+  function correr () {
+    // return un valor entre 5 y 15
+    const min = 5
+    const max = 15
+    // math.floor redondea hacia abajo 3,9 = 3
+    // math.ceil redondea para arriba 3.1 = 4
+    // math round redondea dependiendo 3.1 = 3, 3.5 = 4 - inclusive los valores 5 y 15 entre 5 y 15
+    return Math.round(Math.random() * (max - min)) + min // devulve un valor entre 0 y 1
+  }
+
+  let totalKms = 0
+  const length = dias.length
+  for (let i = 0; i < length; i++) {
+    const kms = correr()
+    totalKms += kms // totalKms = totalKms + kms
+    console.log(`El día ${i} es ${dias[i]}, y ${nombre} corrió ${kms} Kilómetros.`);
+  }
+
+  const promedioKms = totalKms / length
+  console.log(`En promedio, ${nombre}, corrió ${promedioKms.toFixed(2)} Kilómetros.`);
+  // toFixed es para despues de la coma tomar el numero de decimales.
+
+  </script>
+
+</body>
+</html>

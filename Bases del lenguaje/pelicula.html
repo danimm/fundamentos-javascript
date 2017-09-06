@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Puedes pasar a ver la película ?</title>
+</head>
+<body>
+  <script type="text/javascript">
+    const starWars7 = 'Estar Wars: El Despertar de la Fuerza'
+    const pgStarWars7 = 13
+
+    const nameDani = 'Dani'
+    const ageDani = 28
+
+    const nameSacha = 'Sacha'
+    const ageSacha = 12
+
+    function canWatchStarWars7(name, age, isWithAdult = false) {
+      if (age >= pgStarWars7){
+        alert(`${name} puede pasar a ver ${starWars7}`)
+      } else if (isWithAdult){
+        // no es necesario poner == true, no se compara contra true
+        // cuando arriba no se define la variable isWithAdult
+        // viene por defecto como false
+        alert(`${name} puede pasar a ver ${starWars7}.
+          Aunque su edad es ${age} años, se encuentra acompañado/a por un adulto.`);
+      } else {
+        alert(`${name} no puede pasar a ver ${starWars7}.
+          Tiene ${age} años y necesita tener ${pgStarWars7} años`);
+      }
+    }
+
+    canWatchStarWars7(nameSacha, ageSacha, true)
+    canWatchStarWars7(nameDani, ageDani)
+
+
+  </script>
+</body>
+</html>
