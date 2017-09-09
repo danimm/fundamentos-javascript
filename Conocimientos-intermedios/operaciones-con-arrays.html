@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Operaciones con arrays</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+// function suma (n1, n2.....) {
+//   return n1 + n2....
+// }  Incorrecto
+
+function suma (...numeros) {  // todos los que sean, no sabemos
+  // let acum = 0
+  // for (let i = 0; i< numeros.length; i++){
+  //   acum += numeros[i]
+  // }
+  // con el metodo reduce
+  return numeros.reduce(function (acum, numero) {
+    acum += numero
+    return acum
+  }, 0)
+}
+
+const suma = (...numeros) => numeros.reduce( (acum,numero) => acum += numero, 0)
+
+// function dobles (...numeros) {
+//   const resultado = []
+//   for (let i = 0; i < numeros.length; i++) {
+//     resultado.push(numeros[i] *2)
+//   }
+//   return resultado
+// }
+
+const dobles = (...numeros) => numeros.map(numero => numero * 2)
+
+// function pares (...numeros) {
+//   const resultado = []
+//   const length = numeros.length
+//   for (let i = 0; i < length; i++) {
+//     const numero = numeros[i]
+//     if (numero % 2 == 0) {
+//       resultado.push(numero)
+//     }
+//   }
+//   return resultado
+// }
+
+const pares = (...numeros) => numeros.filter(numero => numero % 2 == 0)
+
+
+  </script>
+</body>
+</html>

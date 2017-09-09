@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Entendiendo el scope de las variables</title>
+</head>
+<body>
+
+
+  <script type="text/javascript">
+    // variable en el scope global
+    // no usar var para no crear bugs en un futuro
+    // Es recomendable usar const (si no cambia) y sino let, NUNCA VAR
+    const nombre = "Dani"
+
+    function saludar10Veces () {  //scope local de la variable.
+      for (let i = 0; i < 10; i++) {
+        console.log(`La variable nombre tiene el valor ${nombre}`);
+      }
+    }
+
+    saludar10Veces() // scope global
+
+
+
+  </script>
+
+</body>
+</html>
